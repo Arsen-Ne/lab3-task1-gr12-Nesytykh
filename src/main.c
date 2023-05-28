@@ -2,7 +2,16 @@
 #include <stdbool.h>
 
 bool hasUniqueDigits(int num) {
-    //todo
+    bool digits[10] = { false };
+    while (num > 0) {
+        int digit = num % 10;
+        if (digits[digit]) {
+            return false;
+        }
+        digits[digit] = true;
+        num /= 10;
+    }
+    return true;
 }
 
 int countNumbersWithUniqueDigits(int arr[], int n) {
