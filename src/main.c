@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <time.h>
 
 bool hasUniqueDigits(int num) {
     bool digits[10] = { false };
@@ -25,8 +26,18 @@ int countNumbersWithUniqueDigits(int arr[], int n) {
 }
 
 int main() {
-    int arr[] = { 123, 456, 789, 121, 345 };
-    int n = sizeof(arr);
+    int n;
+    printf("insert massiv size: ");
+    scanf("%d", &n);
+
+    srand(101258);
+    int arr[n];
+    
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand() % 1000;
+        printf("%d ", arr[i]);
+    }
+  
     int count = countNumbersWithUniqueDigits(arr, n);
     printf("Количество чисел с уникальными цифрами: %dn", count);
     return 0;
